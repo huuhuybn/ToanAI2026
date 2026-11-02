@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Slide Trình Chiếu Buổi 1 — Toán AI Thực Chiến 2026</title>
+  <title>Buoi01_ToanAI_2026.pptx — PowerPoint Presentation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -13,13 +13,20 @@
 
   <div class="deck-wrapper">
 
-    <!-- TOP NAVIGATION BAR -->
-    <header class="topbar">
-      <a href="#" class="brand" onclick="goToSlide(0); return false;">
-        <span class="brand-badge">SLIDE BUỔI 1</span>
-        <span>Toán AI 2026</span>
-      </a>
+    <!-- 1. POWERPOINT ORANGE TITLE BAR -->
+    <div class="ppt-titlebar">
+      <div class="ppt-title-left">
+        <span class="ppt-app-icon">P</span>
+        <span class="ppt-doc-name">Buoi01_ToanAI_ThucChien_2026.pptx — PowerPoint</span>
+        <span class="ppt-saved-badge">✔ Đã lưu</span>
+      </div>
+      <div style="font-size:0.78rem; opacity:0.9;">
+        Phím tắt: <strong>◀ / ▶</strong> Chuyển Slide &nbsp;|&nbsp; <strong>F5</strong> Trình chiếu toàn màn hình
+      </div>
+    </div>
 
+    <!-- 2. POWERPOINT RIBBON BAR -->
+    <header class="ppt-ribbon">
       <div class="part-pills">
         <button class="part-pill active" id="pill-part1" onclick="goToSlide(0)">
           1️⃣ Phần 1: Lý thuyết Toán (Slide 1–7)
@@ -39,484 +46,478 @@
         <a class="colab-cta" href="https://colab.research.google.com/github/huuhuybn/ToanAI2026/blob/main/notebooks/Buoi01_Demo_ThucHanh.ipynb" target="_blank" rel="noopener">
           ⚡ Mở Google Colab
         </a>
-        <button class="icon-btn" onclick="toggleFullscreen()" title="Bật/Tắt Toàn màn hình (Phím F)">
-          ⛶ Toàn màn hình
+        <button class="btn-slideshow" onclick="toggleSlideShowMode()" title="Bắt đầu Trình chiếu (F5)">
+          ▶ Trình chiếu (F5)
         </button>
       </div>
     </header>
 
-    <!-- PROGRESS BAR -->
-    <div class="progress-track">
-      <div id="progress-fill" class="progress-fill"></div>
-    </div>
+    <!-- 3. MAIN WORKSPACE: LEFT SLIDE THUMBNAIL PANE + 16:9 SLIDE CANVAS -->
+    <div class="ppt-main">
 
-    <!-- MAIN SLIDE STAGE (15 SLIDES) -->
-    <main class="slide-stage">
+      <!-- Left Thumbnail Sidebar (Auto-populated by app.js) -->
+      <aside id="ppt-thumbnails" class="ppt-sidebar"></aside>
 
-      <!-- ==================================================================
-           SLIDE 1: TRANG BÌA & CẤU TRÚC BUỔI HỌC
-           ================================================================== -->
-      <section class="slide active" data-part="1" data-title="Slide 1: Trang bìa & Cấu trúc Buổi 1">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-1-tag">Buổi 1 / 11 • Học phần A: Nền tảng</span>
-            <span class="slide-number-badge">Dùng phím ◀ ▶ để chuyển Slide</span>
-          </div>
-        </div>
+      <!-- Center 16:9 Slide Stage -->
+      <main class="slide-stage">
 
-        <div class="slide-content cover-hero">
-          <div style="color:#38bdf8; font-weight:700; font-size:0.95rem; text-transform:uppercase; letter-spacing:1px;">
-            Khóa học Toán Ứng Dụng cho AI, Data Science &amp; Machine Learning
-          </div>
-          <h1 class="cover-title">
-            Buổi 1: Bản đồ Toán trong AI, Ký hiệu Toán &amp; Thực hành Google Colab
-          </h1>
-          <p style="font-size:1.08rem; color:var(--text-muted); max-width:900px;">
-            Thiết kế chuyên biệt cho <strong>Sinh viên CNTT mất gốc Toán</strong>: Không chứng minh công thức hàn lâm — Hiểu bản chất trực quan — Biết dùng công cụ <strong>Google Colab &amp; NumPy</strong> để giải bài tập thực tế ngay tại lớp.
-          </p>
-
-          <div class="agenda-cards">
-            <div class="agenda-card" onclick="goToSlide(1)">
-              <span class="slide-part-tag part-1-tag">PHẦN 1 • SLIDE 1 – 7</span>
-              <h3 style="color:#fff; margin:0.65rem 0 0.35rem;">📐 Lý thuyết Toán học</h3>
-              <p style="font-size:0.88rem; color:var(--text-muted);">
-                Bản đồ 4 trạm Pipeline AI, giải mã ký hiệu Vô hướng, Vector (<code>𝐱 ∈ ℝⁿ</code>), Ma trận (<code>𝐗 ∈ ℝᵐˣⁿ</code>), Tổng <code>∑</code> và Mô hình 1 Nơ-ron (<code>𝐰·𝐱 + b</code>).
-              </p>
+        <!-- ================================================================
+             SLIDE 1: TRANG BÌA (COVER SLIDE)
+             ================================================================ -->
+        <section class="slide cover-slide active" data-part="1" data-title="Trang bìa & Cấu trúc Buổi 1">
+          <div class="slide-top"></div>
+          <div class="slide-content">
+            <div style="color:#fbbf24; font-weight:800; font-size:0.9rem; text-transform:uppercase; letter-spacing:1.2px;">
+              KHÓA HỌC TOÁN ỨNG DỤNG CHO AI, DATA SCIENCE &amp; MACHINE LEARNING
             </div>
+            <h1 class="cover-title">
+              BUỔI 1: BẢN ĐỒ TOÁN TRONG AI, KÝ HIỆU TOÁN &amp; THỰC HÀNH GOOGLE COLAB
+            </h1>
+            <p style="font-size:1.02rem; color:#cbd5e1; max-width:900px;">
+              Thiết kế dành riêng cho <strong>Sinh viên CNTT mất gốc Toán</strong>: Không chứng minh công thức hàn lâm — Hiểu bản chất trực quan — Thực hành ngay trên công cụ <strong>Google Colab &amp; NumPy</strong>.
+            </p>
 
-            <div class="agenda-card" onclick="goToSlide(7)">
-              <span class="slide-part-tag part-2-tag">PHẦN 2 • SLIDE 8 – 11</span>
-              <h3 style="color:#fff; margin:0.65rem 0 0.35rem;">💻 Công cụ Colab &amp; Demo</h3>
-              <p style="font-size:0.88rem; color:var(--text-muted);">
-                Làm quen môi trường Google Colab trong 2 phút &amp; Giảng viên demo trực tiếp "4 đường cơ bản" bằng thư viện <code>NumPy</code>.
-              </p>
-            </div>
+            <div class="agenda-cards">
+              <div class="agenda-card" onclick="goToSlide(1)">
+                <span class="slide-part-tag">PHẦN 1 • SLIDE 1 – 7</span>
+                <h3>1. Lý thuyết Toán học</h3>
+                <p>
+                  Bản đồ 4 trạm Pipeline AI, giải mã ký hiệu Vô hướng, Vector (<code>𝐱 ∈ ℝⁿ</code>), Ma trận (<code>𝐗 ∈ ℝᵐˣⁿ</code>), Tổng <code>∑</code> và Mô hình 1 Nơ-ron (<code>𝐰·𝐱 + b</code>).
+                </p>
+              </div>
 
-            <div class="agenda-card" onclick="goToSlide(11)">
-              <span class="slide-part-tag part-3-tag">PHẦN 3 • SLIDE 12 – 14</span>
-              <h3 style="color:#fff; margin:0.65rem 0 0.35rem;">📝 Giao Bài tập Thực hành</h3>
-              <p style="font-size:0.88rem; color:var(--text-muted);">
-                Sinh viên tự làm 3 bài tập trên Colab: (1) Xét học bổng bằng Vector, (2) Cứu sáng Ma trận Ảnh, (3) Mini-App AI Chấm điểm CV.
-              </p>
+              <div class="agenda-card" onclick="goToSlide(7)">
+                <span class="slide-part-tag" style="background:#fef3c7; color:#b45309;">PHẦN 2 • SLIDE 8 – 11</span>
+                <h3>2. Công cụ Colab &amp; Demo</h3>
+                <p>
+                  Làm quen môi trường Google Colab trong 2 phút &amp; Giảng viên demo trực tiếp "4 đường cơ bản" bằng thư viện <code>NumPy</code>.
+                </p>
+              </div>
+
+              <div class="agenda-card" onclick="goToSlide(11)">
+                <span class="slide-part-tag" style="background:#dcfce7; color:#047857;">PHẦN 3 • SLIDE 12 – 14</span>
+                <h3>3. Giao Bài tập Thực hành</h3>
+                <p>
+                  Sinh viên tự làm 3 bài tập trên Colab: (1) Xét học bổng bằng Vector, (2) Cứu sáng Ma trận Ảnh, (3) Mini-App AI Chấm điểm CV.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ==================================================================
-           SLIDE 2: BẢN ĐỒ 4 TRẠM TOÁN HỌC TRONG PIPELINE ML
-           ================================================================== -->
-      <section class="slide" data-part="1" data-title="Slide 2: Bản đồ Toán trong Pipeline ML">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-1-tag">Phần 1: Lý thuyết Toán học</span>
-            <span class="slide-number-badge">Slide 2 / 15</span>
-          </div>
-          <h2 class="slide-title">🗺️ Bản đồ Toán học trong Pipeline AI / Machine Learning</h2>
-          <p class="slide-subtitle">Tại sao học AI lại cần Đại số tuyến tính, Giải tích, Xác suất &amp; Thống kê? Hãy bấm vào từng trạm dưới đây:</p>
-        </div>
-
-        <div class="slide-content">
-          <div class="pipeline-steps">
-            <div class="pipe-node active" onclick="renderPipeline(0)">
-              <div style="font-family:var(--font-mono); font-size:0.75rem; color:#38bdf8; font-weight:700;">TRẠM 01</div>
-              <div style="font-weight:700; font-size:1.02rem; margin:0.25rem 0;">📥 Số hóa Dữ liệu</div>
-              <div style="font-size:0.82rem; color:var(--text-muted);">Hồ sơ, Ảnh, Chữ &rarr; Vector &amp; Ma trận</div>
+        <!-- ================================================================
+             SLIDE 2: BẢN ĐỒ 4 TRẠM TOÁN HỌC TRONG PIPELINE ML
+             ================================================================ -->
+        <section class="slide" data-part="1" data-title="Bản đồ Toán trong Pipeline ML">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 1: Lý thuyết Toán học</span>
+              <span class="slide-number-badge">Slide 2 / 15</span>
             </div>
-            <div class="pipe-node" onclick="renderPipeline(1)">
-              <div style="font-family:var(--font-mono); font-size:0.75rem; color:#38bdf8; font-weight:700;">TRẠM 02</div>
-              <div style="font-weight:700; font-size:1.02rem; margin:0.25rem 0;">🧠 Mô hình Dự đoán</div>
-              <div style="font-size:0.82rem; color:var(--text-muted);">Tính ŷ = w·x + b &amp; đổi ra Xác suất</div>
-            </div>
-            <div class="pipe-node" onclick="renderPipeline(2)">
-              <div style="font-family:var(--font-mono); font-size:0.75rem; color:#38bdf8; font-weight:700;">TRẠM 03</div>
-              <div style="font-weight:700; font-size:1.02rem; margin:0.25rem 0;">🎯 Đo Sai số (Loss)</div>
-              <div style="font-size:0.82rem; color:var(--text-muted);">Đo độ lệch giữa Dự đoán ŷ và Thực tế y</div>
-            </div>
-            <div class="pipe-node" onclick="renderPipeline(3)">
-              <div style="font-family:var(--font-mono); font-size:0.75rem; color:#38bdf8; font-weight:700;">TRẠM 04</div>
-              <div style="font-weight:700; font-size:1.02rem; margin:0.25rem 0;">🔧 Tối ưu &amp; Kiểm định</div>
-              <div style="font-size:0.82rem; color:var(--text-muted);">Đạo hàm tự sửa số w &amp; Kiểm định A/B</div>
-            </div>
+            <h2 class="slide-title">1.1. Bản đồ Toán học trong Pipeline AI / Machine Learning</h2>
+            <p class="slide-subtitle">Tại sao học AI lại cần Đại số tuyến tính, Giải tích, Xác suất &amp; Thống kê? (Click vào từng trạm để xem)</p>
           </div>
 
-          <div id="pipeline-detail" class="pipe-detail-box"></div>
-        </div>
-      </section>
+          <div class="slide-content">
+            <div class="pipeline-steps">
+              <div class="pipe-node active" onclick="renderPipeline(0)">
+                <div style="font-family:var(--font-mono); font-size:0.74rem; color:#1d4ed8; font-weight:800;">TRẠM 01</div>
+                <div style="font-weight:800; font-size:0.98rem; margin:0.2rem 0; color:#0f172a;">📥 Số hóa Dữ liệu</div>
+                <div style="font-size:0.8rem; color:#475569;">Hồ sơ, Ảnh, Chữ &rarr; Vector &amp; Ma trận</div>
+              </div>
+              <div class="pipe-node" onclick="renderPipeline(1)">
+                <div style="font-family:var(--font-mono); font-size:0.74rem; color:#1d4ed8; font-weight:800;">TRẠM 02</div>
+                <div style="font-weight:800; font-size:0.98rem; margin:0.2rem 0; color:#0f172a;">🧠 Mô hình Dự đoán</div>
+                <div style="font-size:0.8rem; color:#475569;">Tính ŷ = w·x + b &amp; đổi ra Xác suất</div>
+              </div>
+              <div class="pipe-node" onclick="renderPipeline(2)">
+                <div style="font-family:var(--font-mono); font-size:0.74rem; color:#1d4ed8; font-weight:800;">TRẠM 03</div>
+                <div style="font-weight:800; font-size:0.98rem; margin:0.2rem 0; color:#0f172a;">🎯 Đo Sai số (Loss)</div>
+                <div style="font-size:0.8rem; color:#475569;">Đo độ lệch giữa Dự đoán ŷ và Thực tế y</div>
+              </div>
+              <div class="pipe-node" onclick="renderPipeline(3)">
+                <div style="font-family:var(--font-mono); font-size:0.74rem; color:#1d4ed8; font-weight:800;">TRẠM 04</div>
+                <div style="font-weight:800; font-size:0.98rem; margin:0.2rem 0; color:#0f172a;">🔧 Tối ưu &amp; Kiểm định</div>
+                <div style="font-size:0.8rem; color:#475569;">Đạo hàm tự sửa số w &amp; Kiểm định A/B</div>
+              </div>
+            </div>
 
-      <!-- ==================================================================
-           SLIDE 3: LÝ THUYẾT 1 — VÔ HƯỚNG, VECTOR & MA TRẬN
-           ================================================================== -->
-      <section class="slide" data-part="1" data-title="Slide 3: Vô hướng, Vector & Ma trận">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-1-tag">Phần 1: Lý thuyết Toán học</span>
-            <span class="slide-number-badge">Slide 3 / 15</span>
+            <div id="pipeline-detail" class="pipe-detail-box"></div>
           </div>
-          <h2 class="slide-title">📐 Lý thuyết 1: Vô hướng (x ∈ ℝ), Vector (𝐱 ∈ ℝⁿ) &amp; Ma trận (𝐗 ∈ ℝᵐˣⁿ)</h2>
-          <p class="slide-subtitle">Cách Toán học đóng gói thông tin của 1 đối tượng hoặc cả bảng dữ liệu để đưa vào máy tính</p>
-        </div>
+        </section>
 
-        <div class="slide-content">
-          <div class="grid-3">
-            <div class="info-box blue-accent">
-              <h3 style="color:#60a5fa;">1. Vô hướng (Scalar)</h3>
-              <div class="math-formula" style="font-size:1.05rem;">x ∈ ℝ</div>
-              <p style="font-size:0.9rem; color:var(--text-muted);">
-                • Ký hiệu bằng <strong>chữ thường in nghiêng</strong> (<code>x, y, a, b</code>).<br/>
-                • Chỉ là <strong>1 con số thực đơn lẻ</strong>.<br/>
-                • <em>Ví dụ:</em> Điểm GPA <code>x = 3.5</code>, hoặc hệ số điểm cộng <code>b = 0.5</code>.
-              </p>
+        <!-- ================================================================
+             SLIDE 3: LÝ THUYẾT 1 — VÔ HƯỚNG, VECTOR & MA TRẬN
+             ================================================================ -->
+        <section class="slide" data-part="1" data-title="Vô hướng, Vector & Ma trận">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 1: Lý thuyết Toán học</span>
+              <span class="slide-number-badge">Slide 3 / 15</span>
             </div>
-
-            <div class="info-box emerald-accent">
-              <h3 style="color:#34d399;">2. Vector (Danh sách 1 chiều)</h3>
-              <div class="math-formula" style="font-size:1.05rem;">𝐱 = [x₁, x₂, ..., xₙ] ∈ ℝⁿ</div>
-              <p style="font-size:0.9rem; color:var(--text-muted);">
-                • Ký hiệu bằng <strong>chữ thường in đậm</strong> (<code>𝐱, 𝐰</code>).<br/>
-                • Là 1 dãy gồm <code>n</code> con số xếp theo thứ tự, biểu diễn <strong>1 đối tượng có n đặc trưng</strong>.<br/>
-                • <em>Ví dụ:</em> 1 sinh viên có 4 thông số:<br/>
-                <code>𝐱 = [3.5, 4, 8.0, 7.0] ∈ ℝ⁴</code>
-              </p>
-            </div>
-
-            <div class="info-box amber-accent">
-              <h3 style="color:#fbbf24;">3. Ma trận (Bảng 2 chiều)</h3>
-              <div class="math-formula" style="font-size:1.05rem;">𝐗 ∈ ℝᵐˣⁿ</div>
-              <p style="font-size:0.9rem; color:var(--text-muted);">
-                • Ký hiệu bằng <strong>chữ IN HOA</strong> (<code>𝐗, 𝐖</code>).<br/>
-                • Là bảng gồm <strong><code>m</code> hàng (m đối tượng)</strong> và <strong><code>n</code> cột (n đặc trưng)</strong>.<br/>
-                • Phần tử ở hàng <code>i</code>, cột <code>j</code> viết là <code>Xᵢⱼ</code>.
-              </p>
-            </div>
+            <h2 class="slide-title">1.2. Vô hướng (x ∈ ℝ), Vector (𝐱 ∈ ℝⁿ) &amp; Ma trận (𝐗 ∈ ℝᵐˣⁿ)</h2>
+            <p class="slide-subtitle">Cách Toán học đóng gói thông tin của 1 đối tượng hoặc cả bảng dữ liệu để đưa vào máy tính</p>
           </div>
 
-          <pre class="code-block" style="color:#93c5fd;">Ví dụ trực quan: Ma trận 𝐗 ∈ ℝ^(3×4) lưu hồ sơ của 3 Sinh viên CNTT (3 hàng × 4 cột):
+          <div class="slide-content">
+            <div class="grid-3">
+              <div class="info-box blue-accent">
+                <h3>1. Vô hướng (Scalar)</h3>
+                <div class="math-formula" style="font-size:1rem;">x ∈ ℝ</div>
+                <p style="font-size:0.86rem;">
+                  • Ký hiệu bằng <strong>chữ thường in nghiêng</strong> (<code>x, y, b</code>).<br/>
+                  • Là <strong>1 con số thực đơn lẻ</strong>.<br/>
+                  • <em>Ví dụ:</em> Điểm GPA <code>x = 3.5</code>, hoặc điểm cộng <code>b = 0.5</code>.
+                </p>
+              </div>
+
+              <div class="info-box emerald-accent">
+                <h3>2. Vector (Danh sách 1 chiều)</h3>
+                <div class="math-formula" style="font-size:1rem;">𝐱 = [x₁, x₂, ..., xₙ] ∈ ℝⁿ</div>
+                <p style="font-size:0.86rem;">
+                  • Ký hiệu bằng <strong>chữ thường in đậm</strong> (<code>𝐱, 𝐰</code>).<br/>
+                  • Dãy gồm <code>n</code> con số biểu diễn <strong>1 đối tượng có n đặc trưng</strong>.<br/>
+                  • <em>Ví dụ:</em> 1 sinh viên có 4 thông số:<br/>
+                  <code>𝐱 = [3.5, 4, 8.0, 7.0] ∈ ℝ⁴</code>
+                </p>
+              </div>
+
+              <div class="info-box amber-accent">
+                <h3>3. Ma trận (Bảng 2 chiều)</h3>
+                <div class="math-formula" style="font-size:1rem;">𝐗 ∈ ℝᵐˣⁿ</div>
+                <p style="font-size:0.86rem;">
+                  • Ký hiệu bằng <strong>chữ IN HOA</strong> (<code>𝐗, 𝐖</code>).<br/>
+                  • Bảng gồm <strong><code>m</code> hàng (m đối tượng)</strong> và <strong><code>n</code> cột (n đặc trưng)</strong>.<br/>
+                  • Phần tử hàng <code>i</code>, cột <code>j</code> viết là <code>Xᵢⱼ</code>.
+                </p>
+              </div>
+            </div>
+
+            <pre class="code-block">Ví dụ trực quan: Ma trận 𝐗 ∈ ℝ^(3×4) lưu hồ sơ của 3 Sinh viên CNTT (3 hàng × 4 cột):
               [Cột 1: GPA]   [Cột 2: Số Project]   [Cột 3: Điểm Code]   [Cột 4: Tiếng Anh]
       ┌          3.5                 4                    8.0                  7.0         ┐  &lt;-- Hàng 1 (Vector sinh viên 1)
   𝐗 = │          2.8                 2                    6.0                  5.5         │  &lt;-- Hàng 2 (Vector sinh viên 2)
       └          3.9                 6                    9.5                  8.5         ┘  &lt;-- Hàng 3 (Vector sinh viên 3)</pre>
-        </div>
-      </section>
-
-      <!-- ==================================================================
-           SLIDE 4: LÝ THUYẾT 2 — PHÉP TỔNG SIGMA (∑) & TRUNG BÌNH CỘNG (x̄)
-           ================================================================== -->
-      <section class="slide" data-part="1" data-title="Slide 4: Phép Tổng Sigma (∑) & Trung bình">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-1-tag">Phần 1: Lý thuyết Toán học</span>
-            <span class="slide-number-badge">Slide 4 / 15</span>
           </div>
-          <h2 class="slide-title">📐 Lý thuyết 2: Ký hiệu Tổng Sigma (∑) &amp; Giá trị Trung bình cộng (x̄)</h2>
-          <p class="slide-subtitle">Giải mã chữ Hy Lạp xuất hiện nhiều nhất trong các công thức Machine Learning &amp; Thống kê</p>
-        </div>
+        </section>
 
-        <div class="slide-content">
-          <div class="grid-2">
-            <div class="info-box amber-accent">
-              <h3 style="color:#fbbf24;">1. Phép Tổng Sigma (∑)</h3>
-              <div class="math-formula">S = ∑(i=1 &rarr; n) xᵢ = x₁ + x₂ + ... + xₙ</div>
-              <p style="font-size:0.92rem; color:var(--text-muted);">
-                • Chữ <strong>∑ (Sigma)</strong> là ký hiệu viết tắt của từ <em>Sum (Cộng tổng)</em>.<br/>
-                • Chỉ số dưới <code>i = 1</code> là vị trí bắt đầu, chỉ số trên <code>n</code> là vị trí kết thúc.<br/>
-                • <strong>Cách đọc:</strong> "Lấy lần lượt từng phần tử thứ 1, thứ 2... đến thứ n trong vector <code>𝐱</code> cộng dồn hết lại với nhau".
-              </p>
+        <!-- ================================================================
+             SLIDE 4: LÝ THUYẾT 2 — PHÉP TỔNG SIGMA (∑) & TRUNG BÌNH CỘNG (x̄)
+             ================================================================ -->
+        <section class="slide" data-part="1" data-title="Phép Tổng Sigma (∑) & Trung bình">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 1: Lý thuyết Toán học</span>
+              <span class="slide-number-badge">Slide 4 / 15</span>
             </div>
-
-            <div class="info-box emerald-accent">
-              <h3 style="color:#34d399;">2. Giá trị Trung bình cộng (Mean — x̄ hoặc μ)</h3>
-              <div class="math-formula">x̄ = (1 / n) ∑(i=1 &rarr; n) xᵢ</div>
-              <p style="font-size:0.92rem; color:var(--text-muted);">
-                • Khi thấy <strong><code>1/n</code></strong> đứng trước dấu <strong><code>∑</code></strong>, đừng hoảng!<br/>
-                • Nó đơn giản là: <strong>Bước 1: Cộng tổng tất cả các số lại (<code>∑ xᵢ</code>) &rarr; Bước 2: Đem chia cho tổng số phần tử (<code>n</code>)</strong>.<br/>
-                • Đây là nền tảng để tính Sai số trung bình (MSE) và Chuẩn hóa dữ liệu.
-              </p>
-            </div>
+            <h2 class="slide-title">1.3. Ký hiệu Tổng Sigma (∑) &amp; Giá trị Trung bình cộng (x̄)</h2>
+            <p class="slide-subtitle">Giải mã chữ Hy Lạp xuất hiện nhiều nhất trong các công thức Machine Learning &amp; Thống kê</p>
           </div>
 
-          <div class="live-calc-box">
-            <h4 style="color:#fff; margin-bottom:0.25rem;">🧪 Tương tác trực tiếp trên Slide: Sửa thử các con số trong Vector <code>𝐱</code> bên dưới</h4>
-            <div class="array-inputs">
-              <span style="font-family:var(--font-mono); color:#94a3b8;">Vector điểm 5 môn 𝐱 = [</span>
-              <input type="number" class="num-input sigma-val" value="7.5" step="0.5" oninput="updateSigmaCalc()" />
-              <input type="number" class="num-input sigma-val" value="8.0" step="0.5" oninput="updateSigmaCalc()" />
-              <input type="number" class="num-input sigma-val" value="6.5" step="0.5" oninput="updateSigmaCalc()" />
-              <input type="number" class="num-input sigma-val" value="9.0" step="0.5" oninput="updateSigmaCalc()" />
-              <input type="number" class="num-input sigma-val" value="8.5" step="0.5" oninput="updateSigmaCalc()" />
-              <span style="font-family:var(--font-mono); color:#94a3b8;">]</span>
-            </div>
-            <div id="sigma-live-result" style="font-size:0.92rem;"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================================================================
-           SLIDE 5: LÝ THUYẾT 3 — TÍCH VÔ HƯỚNG & CÔNG THỨC 1 NƠ-RON NHÂN TẠO
-           ================================================================== -->
-      <section class="slide" data-part="1" data-title="Slide 5: Tích vô hướng & Mô hình 1 Nơ-ron">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-1-tag">Phần 1: Lý thuyết Toán học</span>
-            <span class="slide-number-badge">Slide 5 / 15</span>
-          </div>
-          <h2 class="slide-title">🧠 Lý thuyết 3: Tích vô hướng (Dot Product) &amp; Công thức 1 Nơ-ron Nhân tạo</h2>
-          <p class="slide-subtitle">Hiểu công thức <code>ŷ = 𝐰·𝐱 + b</code> qua ví dụ quen thuộc nhất đời sinh viên: Tính điểm tổng kết môn học!</p>
-        </div>
-
-        <div class="slide-content">
-          <div class="math-formula" style="text-align:center; font-size:1.35rem;">
-            ŷ = ∑(i=1 &rarr; n) wᵢ·xᵢ + b = w₁x₁ + w₂x₂ + ... + wₙxₙ + b = 𝐰 · 𝐱 + b
-          </div>
-
-          <div class="grid-2">
-            <div class="info-box blue-accent">
-              <h3 style="color:#60a5fa;">Giải nghĩa từng thành phần Toán học:</h3>
-              <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.7;">
-                • <strong><code>𝐱 = [x₁, x₂, ..., xₙ]</code> (Input Features):</strong> Các thông số đầu vào của đối tượng.<br/>
-                • <strong><code>𝐰 = [w₁, w₂, ..., wₙ]</code> (Weights - Trọng số):</strong> Độ quan trọng của từng yếu tố. Yếu tố nào quan trọng hơn thì có trọng số <code>wᵢ</code> lớn hơn.<br/>
-                • <strong><code>b</code> (Bias - Độ lệch / Điểm sàn):</strong> Hằng số cộng thêm vào cuối.<br/>
-                • <strong><code>ŷ</code> ( đọc là y-hat / Đầu ra dự đoán):</strong> Kết quả do mô hình AI tính ra.
-              </p>
-            </div>
-
-            <div class="info-box emerald-accent">
-              <h3 style="color:#34d399;">Ví dụ thực tế: Tính Điểm Tổng Kết Môn</h3>
-              <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.65;">
-                Giả sử môn Lập trình Python có quy định trọng số: <strong>10% Chuyên cần, 30% Giữa kỳ, 60% Cuối kỳ</strong> và bạn được <strong>cộng 0.2 điểm</strong> tích cực phát biểu:<br/>
-                • Điểm của bạn: <code>𝐱 = [9.0, 7.5, 8.0]</code><br/>
-                • Trọng số môn: <code>𝐰 = [0.1, 0.3, 0.6]</code> và <code>b = 0.2</code><br/>
-                &rarr; <code>ŷ = (0.1 × 9.0) + (0.3 × 7.5) + (0.6 × 8.0) + 0.2 = 8.15 điểm</code>!
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================================================================
-           SLIDE 6: LÝ THUYẾT 4 — TRỰC QUAN HÓA MA TRẬN ẢNH 8x8
-           ================================================================== -->
-      <section class="slide" data-part="1" data-title="Slide 6: Mô phỏng Ma trận Ảnh 8x8">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-1-tag">Phần 1: Lý thuyết Toán học (Mô phỏng Trực quan)</span>
-            <span class="slide-number-badge">Slide 6 / 15</span>
-          </div>
-          <h2 class="slide-title">👁️ Trực quan hóa Ma trận: Máy tính "Nhìn" &amp; Biến đổi Bức Ảnh bằng Ma trận 𝐗 ∈ ℝ⁸ˣ⁸</h2>
-          <p class="slide-subtitle">Mỗi điểm ảnh (pixel) là 1 phần tử trong ma trận có giá trị từ 0 (Đen) đến 255 (Trắng). Hãy kéo thanh trượt để xem phép cộng/nhân ma trận!</p>
-        </div>
-
-        <div class="slide-content">
-          <div class="matrix-lab">
-            <div>
-              <div style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.65rem; justify-content:center;">
-                <button class="btn-secondary" onclick="loadPixelPreset('digit8')">🔢 Số 8</button>
-                <button class="btn-secondary" onclick="loadPixelPreset('heart')">❤️ Trái tim</button>
-                <button class="btn-secondary" onclick="loadPixelPreset('smile')">😊 Mặt cười</button>
-                <button class="btn-secondary" onclick="loadPixelPreset('clear')">🧹 Xóa trắng (Click ô tự vẽ)</button>
-              </div>
-              <div id="pixel-grid" class="pixel-grid"></div>
-            </div>
-
-            <div>
-              <div class="info-box" style="margin-bottom:0.85rem;">
-                <div class="slider-group">
-                  <label>
-                    <span>1. Cộng vô hướng (<code>𝐗 + b</code> &rarr; Tăng/Giảm Độ sáng):</span>
-                    <span id="brightness-val" style="color:#38bdf8;">+0</span>
-                  </label>
-                  <input type="range" id="brightness-slider" min="-150" max="150" step="10" value="0" oninput="renderPixelLab()" />
-                </div>
-
-                <div class="slider-group">
-                  <label>
-                    <span>2. Nhân vô hướng (<code>w · 𝐗</code> &rarr; Tăng/Giảm Tương phản):</span>
-                    <span id="contrast-val" style="color:#38bdf8;">1.0x</span>
-                  </label>
-                  <input type="range" id="contrast-slider" min="0.2" max="2.5" step="0.1" value="1.0" oninput="renderPixelLab()" />
-                </div>
-
-                <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.85rem;">
-                  <label style="display:flex; align-items:center; gap:0.4rem; cursor:pointer;">
-                    <input type="checkbox" id="invert-check" onchange="renderPixelLab()" />
-                    <span>Đảo màu âm bản (<code>255 - 𝐗</code>)</span>
-                  </label>
-                  <label style="display:flex; align-items:center; gap:0.4rem; cursor:pointer;">
-                    <input type="checkbox" id="threshold-check" onchange="renderPixelLab()" />
-                    <span>Tách nền Nhị phân (<code>𝐗 &ge; 128</code>)</span>
-                  </label>
-                </div>
+          <div class="slide-content">
+            <div class="grid-2">
+              <div class="info-box amber-accent">
+                <h3>1. Phép Tổng Sigma (∑)</h3>
+                <div class="math-formula">S = ∑(i=1 &rarr; n) xᵢ = x₁ + x₂ + ... + xₙ</div>
+                <p style="font-size:0.88rem;">
+                  • Chữ <strong>∑ (Sigma)</strong> là viết tắt của từ <em>Sum (Cộng tổng)</em>.<br/>
+                  • Chỉ số dưới <code>i = 1</code> là vị trí bắt đầu, chỉ số trên <code>n</code> là vị trí kết thúc.<br/>
+                  • <strong>Cách đọc:</strong> "Lấy lần lượt từng phần tử thứ 1 đến thứ n trong vector <code>𝐱</code> cộng dồn hết lại".
+                </p>
               </div>
 
-              <pre id="numpy-matrix-output" class="code-block" style="font-size:0.78rem; padding:0.75rem;"></pre>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================================================================
-           SLIDE 7: KIỂM TRA NHANH LÝ THUYẾT PHẦN 1 (QUICK QUIZ)
-           ================================================================== -->
-      <section class="slide" data-part="1" data-title="Slide 7: Kiểm tra nhanh Lý thuyết Toán">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-1-tag">Phần 1: Củng cố Lý thuyết Toán học</span>
-            <span class="slide-number-badge">Slide 7 / 15</span>
-          </div>
-          <h2 class="slide-title">✅ Quick Quiz: 4 Câu hỏi Kiểm tra Lý thuyết Toán trước khi mở Google Colab</h2>
-          <p class="slide-subtitle">Click chọn đáp án đúng cho từng câu hỏi dưới đây:</p>
-        </div>
-
-        <div class="slide-content">
-          <div id="quiz-container" class="quiz-grid"></div>
-        </div>
-      </section>
-
-      <!-- ==================================================================
-           SLIDE 8: PHẦN 2 — GIỚI THIỆU CÔNG CỤ GOOGLE COLAB
-           ================================================================== -->
-      <section class="slide" data-part="2" data-title="Slide 8: Giới thiệu công cụ Google Colab">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-2-tag">Phần 2: Giới thiệu Công cụ Google Colab &amp; Demo</span>
-            <span class="slide-number-badge">Slide 8 / 15</span>
-          </div>
-          <h2 class="slide-title">☁️ Giới thiệu Công cụ Google Colab: Môi trường Code AI Không Cần Cài Đặt</h2>
-          <p class="slide-subtitle">Tại sao chúng ta không tính toán ma trận bằng tay mà dùng Google Colab + thư viện NumPy?</p>
-        </div>
-
-        <div class="slide-content">
-          <div class="grid-3">
-            <div class="info-box amber-accent">
-              <h3 style="color:#fbbf24;">1️⃣ Chạy 100% trên Trình duyệt</h3>
-              <p style="font-size:0.9rem; color:var(--text-muted);">
-                • Không cần cài Python hay cấu hình máy phức tạp.<br/>
-                • Google cấp miễn phí máy chủ RAM 12GB + GPU trên đám mây.<br/>
-                • Lưu tự động vào Google Drive giống như Google Docs.
-              </p>
-            </div>
-
-            <div class="info-box emerald-accent">
-              <h3 style="color:#34d399;">2️⃣ 3 Thao tác Cơ bản Nhất</h3>
-              <p style="font-size:0.9rem; color:var(--text-muted);">
-                • <strong>Bước 1:</strong> Mở link Notebook và bấm nút <strong><code>Connect</code></strong> (góc phải trên).<br/>
-                • <strong>Bước 2:</strong> Bấm <code>+ Code</code> để tạo ô viết lệnh Python.<br/>
-                • <strong>Bước 3:</strong> Nhấn <strong><code>Shift + Enter</code></strong> (hoặc nút ▶️) để chạy ô code và xem kết quả ngay bên dưới!
-              </p>
-            </div>
-
-            <div class="info-box blue-accent">
-              <h3 style="color:#60a5fa;">3️⃣ Thư viện <code>NumPy</code></h3>
-              <p style="font-size:0.9rem; color:var(--text-muted);">
-                • <strong>NumPy (Numerical Python)</strong> là thư viện chuẩn giúp biến mọi công thức Vector, Ma trận, Tổng Sigma ở Phần 1 thành <strong>1 dòng lệnh duy nhất</strong>.<br/>
-                • Luôn bắt đầu bằng dòng:<br/>
-                <code>import numpy as np</code>
-              </p>
-            </div>
-          </div>
-
-          <div class="live-calc-box" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
-            <div>
-              <h4 style="color:#fff;">🔗 Mở sẵn File Google Colab Thực hành của Buổi 1 tại đây:</h4>
-              <p style="font-size:0.88rem; color:var(--text-muted);">Sinh viên bấm vào nút bên phải để mở file Colab mẫu và chạy song song cùng giảng viên.</p>
-            </div>
-            <a class="colab-cta" href="https://colab.research.google.com/github/huuhuybn/ToanAI2026/blob/main/notebooks/Buoi01_Demo_ThucHanh.ipynb" target="_blank" rel="noopener" style="font-size:0.95rem; padding:0.65rem 1.2rem;">
-              ⚡ Mở File Google Colab Buổi 1 &rarr;
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================================================================
-           SLIDE 9: BẢNG ĐỐI CHIẾU KÝ HIỆU TOÁN (PHẦN 1) -> LỆNH NUMPY (PHẦN 2)
-           ================================================================== -->
-      <section class="slide" data-part="2" data-title="Slide 9: Bảng dịch Ký hiệu Toán sang NumPy">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-2-tag">Phần 2: Giới thiệu Công cụ Google Colab &amp; Demo</span>
-            <span class="slide-number-badge">Slide 9 / 15</span>
-          </div>
-          <h2 class="slide-title">🔄 Bảng Đối Chiếu 1–1: Từ "Ký hiệu Toán học" sang "Câu lệnh NumPy"</h2>
-          <p class="slide-subtitle">Chỉ cần nhớ 5 dòng lệnh cơ bản này, bạn giải quyết được toàn bộ bài toán của Buổi 1:</p>
-        </div>
-
-        <div class="slide-content">
-          <div class="info-box" style="padding:1rem;">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>STT</th>
-                  <th>Khái niệm Toán (Đã học ở Phần 1)</th>
-                  <th>Ký hiệu Toán</th>
-                  <th>Câu lệnh trên Google Colab (NumPy)</th>
-                  <th>Kết quả trả về</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>1</strong></td>
-                  <td>Khởi tạo Vector (1 chiều)</td>
-                  <td><code>𝐱 ∈ ℝⁿ</code></td>
-                  <td><code>x = np.array([3.5, 4, 8.0, 7.0])</code></td>
-                  <td>Mảng 1 chiều gồm 4 phần tử</td>
-                </tr>
-                <tr>
-                  <td><strong>2</strong></td>
-                  <td>Khởi tạo Ma trận (2 chiều)</td>
-                  <td><code>𝐗 ∈ ℝᵐˣⁿ</code></td>
-                  <td><code>X = np.array([[1, 2], [3, 4]])</code></td>
-                  <td>Bảng số 2 hàng × 2 cột</td>
-                </tr>
-                <tr>
-                  <td><strong>3</strong></td>
-                  <td>Kiểm tra số chiều / kích thước</td>
-                  <td><code>m × n</code></td>
-                  <td><code>X.shape</code></td>
-                  <td>Trả về <code>(số_dòng, số_cột)</code></td>
-                </tr>
-                <tr>
-                  <td><strong>4</strong></td>
-                  <td>Tính Tổng Sigma &amp; Trung bình</td>
-                  <td><code>∑ xᵢ</code> và <code>x̄</code></td>
-                  <td><code>np.sum(x)</code> và <code>np.mean(x)</code></td>
-                  <td>Tổng các số / Trung bình cộng</td>
-                </tr>
-                <tr>
-                  <td><strong>5</strong></td>
-                  <td>Tích vô hướng (Mô hình 1 Nơ-ron)</td>
-                  <td><code>ŷ = 𝐰·𝐱 + b</code></td>
-                  <td><code>np.dot(w, x) + b</code></td>
-                  <td>Nhân từng cặp <code>wᵢ*xᵢ</code> rồi cộng tổng + <code>b</code></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================================================================
-           SLIDE 10: DEMO CƠ BẢN 1 & 2 TRÊN COLAB (VECTOR, MA TRẬN, SIGMA)
-           ================================================================== -->
-      <section class="slide" data-part="2" data-title="Slide 10: Demo Cơ bản 1 & 2 trên Colab">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-2-tag">Phần 2: Demo "Vài đường cơ bản" trên Colab</span>
-            <span class="slide-number-badge">Slide 10 / 15</span>
-          </div>
-          <h2 class="slide-title">💻 Demo Cơ bản 1 &amp; 2: Tạo Vector/Ma trận và Tính Tổng Sigma (∑)</h2>
-          <p class="slide-subtitle">Giảng viên bấm nút <strong>▶️ Chạy thử Cell</strong> ngay trên Slide (hoặc chạy trực tiếp bên tab Google Colab):</p>
-        </div>
-
-        <div class="slide-content">
-          <div class="grid-2">
-            <!-- CELL 1 -->
-            <div class="colab-cell-card">
-              <div class="colab-cell-header">
-                <span style="font-weight:700; font-size:0.88rem; color:#fbbf24;">In [1]: Tạo Vector &amp; Ma trận (.shape)</span>
-                <button class="colab-run-btn" onclick="runSimulatedCell('cell-1')">▶️ Chạy thử Cell</button>
+              <div class="info-box emerald-accent">
+                <h3>2. Giá trị Trung bình cộng (Mean — x̄)</h3>
+                <div class="math-formula">x̄ = (1 / n) ∑(i=1 &rarr; n) xᵢ</div>
+                <p style="font-size:0.88rem;">
+                  • Khi thấy <strong><code>1/n</code></strong> đứng trước dấu <strong><code>∑</code></strong>, có nghĩa là:<br/>
+                  • <strong>Bước 1:</strong> Cộng tổng tất cả các phần tử (<code>∑ xᵢ</code>).<br/>
+                  • <strong>Bước 2:</strong> Đem chia cho số lượng phần tử (<code>n</code>).
+                </p>
               </div>
-              <div class="colab-cell-body">
-                <pre id="code-cell-1" class="code-block">import numpy as np
+            </div>
+
+            <div class="live-calc-box">
+              <h4 style="margin-bottom:0.2rem;">🧪 Thử nghiệm trực tiếp trên Slide: Sửa các số trong Vector <code>𝐱</code> bên dưới</h4>
+              <div class="array-inputs">
+                <span style="font-family:var(--font-mono); font-weight:700;">Vector điểm 5 môn 𝐱 = [</span>
+                <input type="number" class="num-input sigma-val" value="7.5" step="0.5" oninput="updateSigmaCalc()" />
+                <input type="number" class="num-input sigma-val" value="8.0" step="0.5" oninput="updateSigmaCalc()" />
+                <input type="number" class="num-input sigma-val" value="6.5" step="0.5" oninput="updateSigmaCalc()" />
+                <input type="number" class="num-input sigma-val" value="9.0" step="0.5" oninput="updateSigmaCalc()" />
+                <input type="number" class="num-input sigma-val" value="8.5" step="0.5" oninput="updateSigmaCalc()" />
+                <span style="font-family:var(--font-mono); font-weight:700;">]</span>
+              </div>
+              <div id="sigma-live-result" style="font-size:0.88rem;"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 5: LÝ THUYẾT 3 — TÍCH VÔ HƯỚNG & CÔNG THỨC 1 NƠ-RON NHÂN TẠO
+             ================================================================ -->
+        <section class="slide" data-part="1" data-title="Tích vô hướng & Mô hình 1 Nơ-ron">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 1: Lý thuyết Toán học</span>
+              <span class="slide-number-badge">Slide 5 / 15</span>
+            </div>
+            <h2 class="slide-title">1.4. Tích vô hướng (Dot Product) &amp; Công thức 1 Nơ-ron Nhân tạo</h2>
+            <p class="slide-subtitle">Hiểu công thức <code>ŷ = 𝐰·𝐱 + b</code> qua ví dụ quen thuộc nhất đời sinh viên: Tính điểm tổng kết môn học!</p>
+          </div>
+
+          <div class="slide-content">
+            <div class="math-formula" style="text-align:center; font-size:1.25rem;">
+              ŷ = ∑(i=1 &rarr; n) wᵢ·xᵢ + b = w₁x₁ + w₂x₂ + ... + wₙxₙ + b = 𝐰 · 𝐱 + b
+            </div>
+
+            <div class="grid-2">
+              <div class="info-box blue-accent">
+                <h3>Giải nghĩa từng thành phần Toán học:</h3>
+                <p style="font-size:0.88rem; line-height:1.65;">
+                  • <strong><code>𝐱 = [x₁, x₂, ..., xₙ]</code> (Input Features):</strong> Các thông số đầu vào của đối tượng.<br/>
+                  • <strong><code>𝐰 = [w₁, w₂, ..., wₙ]</code> (Weights - Trọng số):</strong> Độ quan trọng của từng yếu tố. Yếu tố nào quan trọng hơn thì có trọng số <code>wᵢ</code> lớn hơn.<br/>
+                  • <strong><code>b</code> (Bias - Độ lệch / Điểm sàn):</strong> Hằng số cộng thêm vào cuối.<br/>
+                  • <strong><code>ŷ</code> (Đầu ra dự đoán):</strong> Kết quả do mô hình AI tính ra.
+                </p>
+              </div>
+
+              <div class="info-box emerald-accent">
+                <h3>Ví dụ thực tế: Tính Điểm Tổng Kết Môn</h3>
+                <p style="font-size:0.88rem; line-height:1.65;">
+                  Môn Lập trình Python có quy định trọng số: <strong>10% Chuyên cần, 30% Giữa kỳ, 60% Cuối kỳ</strong> và bạn được <strong>cộng 0.2 điểm</strong> phát biểu:<br/>
+                  • Điểm của bạn: <code>𝐱 = [9.0, 7.5, 8.0]</code><br/>
+                  • Trọng số môn: <code>𝐰 = [0.1, 0.3, 0.6]</code> và <code>b = 0.2</code><br/>
+                  &rarr; <code>ŷ = (0.1 × 9.0) + (0.3 × 7.5) + (0.6 × 8.0) + 0.2 = 8.15 điểm</code>!
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 6: LÝ THUYẾT 4 — TRỰC QUAN HÓA MA TRẬN ẢNH 8x8
+             ================================================================ -->
+        <section class="slide" data-part="1" data-title="Mô phỏng Ma trận Ảnh 8x8">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 1: Lý thuyết Toán học (Mô phỏng Trực quan)</span>
+              <span class="slide-number-badge">Slide 6 / 15</span>
+            </div>
+            <h2 class="slide-title">1.5. Trực quan hóa Ma trận: Máy tính "Nhìn" Bức Ảnh bằng Ma trận 𝐗 ∈ ℝ⁸ˣ⁸</h2>
+            <p class="slide-subtitle">Mỗi điểm ảnh (pixel) là 1 phần tử trong ma trận từ 0 (Đen) đến 255 (Trắng). Hãy kéo thanh trượt để thử phép toán ma trận!</p>
+          </div>
+
+          <div class="slide-content">
+            <div class="matrix-lab">
+              <div>
+                <div style="display:flex; gap:0.35rem; flex-wrap:wrap; margin-bottom:0.5rem; justify-content:center;">
+                  <button class="btn-secondary" onclick="loadPixelPreset('digit8')">🔢 Số 8</button>
+                  <button class="btn-secondary" onclick="loadPixelPreset('heart')">❤️ Trái tim</button>
+                  <button class="btn-secondary" onclick="loadPixelPreset('smile')">😊 Mặt cười</button>
+                  <button class="btn-secondary" onclick="loadPixelPreset('clear')">🧹 Xóa trắng</button>
+                </div>
+                <div id="pixel-grid" class="pixel-grid"></div>
+              </div>
+
+              <div>
+                <div class="info-box" style="margin-bottom:0.65rem;">
+                  <div class="slider-group">
+                    <label>
+                      <span>1. Cộng vô hướng (<code>𝐗 + b</code> &rarr; Tăng/Giảm Độ sáng):</span>
+                      <span id="brightness-val" style="color:#1d4ed8; font-weight:800;">+0</span>
+                    </label>
+                    <input type="range" id="brightness-slider" min="-150" max="150" step="10" value="0" oninput="renderPixelLab()" />
+                  </div>
+
+                  <div class="slider-group">
+                    <label>
+                      <span>2. Nhân vô hướng (<code>w · 𝐗</code> &rarr; Tăng/Giảm Tương phản):</span>
+                      <span id="contrast-val" style="color:#1d4ed8; font-weight:800;">1.0x</span>
+                    </label>
+                    <input type="range" id="contrast-slider" min="0.2" max="2.5" step="0.1" value="1.0" oninput="renderPixelLab()" />
+                  </div>
+
+                  <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.82rem; font-weight:600;">
+                    <label style="display:flex; align-items:center; gap:0.35rem; cursor:pointer;">
+                      <input type="checkbox" id="invert-check" onchange="renderPixelLab()" />
+                      <span>Đảo màu âm bản (<code>255 - 𝐗</code>)</span>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:0.35rem; cursor:pointer;">
+                      <input type="checkbox" id="threshold-check" onchange="renderPixelLab()" />
+                      <span>Tách nền Nhị phân (<code>𝐗 &ge; 128</code>)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <pre id="numpy-matrix-output" class="code-block" style="font-size:0.74rem; padding:0.65rem;"></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 7: KIỂM TRA NHANH LÝ THUYẾT PHẦN 1 (QUICK QUIZ)
+             ================================================================ -->
+        <section class="slide" data-part="1" data-title="Kiểm tra nhanh Lý thuyết Toán">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 1: Củng cố Lý thuyết Toán học</span>
+              <span class="slide-number-badge">Slide 7 / 15</span>
+            </div>
+            <h2 class="slide-title">1.6. Quick Quiz: 4 Câu hỏi Kiểm tra Lý thuyết trước khi mở Google Colab</h2>
+            <p class="slide-subtitle">Click chọn đáp án đúng cho từng câu hỏi dưới đây:</p>
+          </div>
+
+          <div class="slide-content">
+            <div id="quiz-container" class="quiz-grid"></div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 8: PHẦN 2 — GIỚI THIỆU CÔNG CỤ GOOGLE COLAB
+             ================================================================ -->
+        <section class="slide" data-part="2" data-title="Giới thiệu công cụ Google Colab">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 2: Giới thiệu Công cụ Google Colab &amp; Demo</span>
+              <span class="slide-number-badge">Slide 8 / 15</span>
+            </div>
+            <h2 class="slide-title">2.1. Giới thiệu Công cụ Google Colab: Code AI Không Cần Cài Đặt</h2>
+            <p class="slide-subtitle">Tại sao chúng ta không tính toán ma trận bằng tay mà dùng Google Colab + thư viện NumPy?</p>
+          </div>
+
+          <div class="slide-content">
+            <div class="grid-3">
+              <div class="info-box amber-accent">
+                <h3>1️⃣ Chạy 100% trên Trình duyệt</h3>
+                <p style="font-size:0.86rem;">
+                  • Không cần cài Python hay cấu hình máy phức tạp.<br/>
+                  • Google cấp miễn phí máy chủ RAM 12GB + GPU trên đám mây.<br/>
+                  • Lưu tự động vào Google Drive giống như Google Docs.
+                </p>
+              </div>
+
+              <div class="info-box emerald-accent">
+                <h3>2️⃣ 3 Thao tác Cơ bản Nhất</h3>
+                <p style="font-size:0.86rem;">
+                  • <strong>Bước 1:</strong> Mở link Notebook và bấm nút <strong><code>Connect</code></strong> (góc phải trên).<br/>
+                  • <strong>Bước 2:</strong> Bấm <code>+ Code</code> để tạo ô viết lệnh Python.<br/>
+                  • <strong>Bước 3:</strong> Nhấn <strong><code>Shift + Enter</code></strong> (hoặc nút ▶️) để chạy ô code!
+                </p>
+              </div>
+
+              <div class="info-box blue-accent">
+                <h3>3️⃣ Thư viện <code>NumPy</code></h3>
+                <p style="font-size:0.86rem;">
+                  • <strong>NumPy (Numerical Python)</strong> giúp biến mọi công thức Vector, Ma trận, Tổng Sigma ở Phần 1 thành <strong>1 dòng lệnh duy nhất</strong>.<br/>
+                  • Luôn bắt đầu bằng dòng:<br/>
+                  <code>import numpy as np</code>
+                </p>
+              </div>
+            </div>
+
+            <div class="live-calc-box" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+              <div>
+                <h4>🔗 Mở sẵn File Google Colab Thực hành của Buổi 1 tại đây:</h4>
+                <p style="font-size:0.84rem; color:#334155;">Sinh viên bấm vào nút bên phải để mở file Colab mẫu và chạy song song cùng giảng viên.</p>
+              </div>
+              <a class="colab-cta" href="https://colab.research.google.com/github/huuhuybn/ToanAI2026/blob/main/notebooks/Buoi01_Demo_ThucHanh.ipynb" target="_blank" rel="noopener">
+                ⚡ Mở File Google Colab Buổi 1 &rarr;
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 9: BẢNG ĐỐI CHIẾU KÝ HIỆU TOÁN -> LỆNH NUMPY
+             ================================================================ -->
+        <section class="slide" data-part="2" data-title="Bảng dịch Ký hiệu Toán sang NumPy">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 2: Giới thiệu Công cụ Google Colab &amp; Demo</span>
+              <span class="slide-number-badge">Slide 9 / 15</span>
+            </div>
+            <h2 class="slide-title">2.2. Bảng Đối Chiếu 1–1: Từ "Ký hiệu Toán học" sang "Câu lệnh NumPy"</h2>
+            <p class="slide-subtitle">Chỉ cần nhớ 5 dòng lệnh cơ bản này, bạn giải quyết được toàn bộ bài toán của Buổi 1:</p>
+          </div>
+
+          <div class="slide-content">
+            <div class="info-box" style="padding:0.85rem;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>STT</th>
+                    <th>Khái niệm Toán (Đã học ở Phần 1)</th>
+                    <th>Ký hiệu Toán</th>
+                    <th>Câu lệnh trên Google Colab (NumPy)</th>
+                    <th>Kết quả trả về</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>1</strong></td>
+                    <td>Khởi tạo Vector (1 chiều)</td>
+                    <td><code>𝐱 ∈ ℝⁿ</code></td>
+                    <td><code>x = np.array([3.5, 4, 8.0, 7.0])</code></td>
+                    <td>Mảng 1 chiều gồm 4 phần tử</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2</strong></td>
+                    <td>Khởi tạo Ma trận (2 chiều)</td>
+                    <td><code>𝐗 ∈ ℝᵐˣⁿ</code></td>
+                    <td><code>X = np.array([[1, 2], [3, 4]])</code></td>
+                    <td>Bảng số 2 hàng × 2 cột</td>
+                  </tr>
+                  <tr>
+                    <td><strong>3</strong></td>
+                    <td>Kiểm tra số chiều / kích thước</td>
+                    <td><code>m × n</code></td>
+                    <td><code>X.shape</code></td>
+                    <td>Trả về <code>(số_dòng, số_cột)</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>4</strong></td>
+                    <td>Tính Tổng Sigma &amp; Trung bình</td>
+                    <td><code>∑ xᵢ</code> và <code>x̄</code></td>
+                    <td><code>np.sum(x)</code> và <code>np.mean(x)</code></td>
+                    <td>Tổng các số / Trung bình cộng</td>
+                  </tr>
+                  <tr>
+                    <td><strong>5</strong></td>
+                    <td>Tích vô hướng (Mô hình 1 Nơ-ron)</td>
+                    <td><code>ŷ = 𝐰·𝐱 + b</code></td>
+                    <td><code>np.dot(w, x) + b</code></td>
+                    <td>Nhân từng cặp <code>wᵢ*xᵢ</code> rồi cộng tổng + <code>b</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SLIDE 10: DEMO CƠ BẢN 1 & 2 TRÊN COLAB
+             ================================================================ -->
+        <section class="slide" data-part="2" data-title="Demo Cơ bản 1 & 2 trên Colab">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 2: Demo "Vài đường cơ bản" trên Colab</span>
+              <span class="slide-number-badge">Slide 10 / 15</span>
+            </div>
+            <h2 class="slide-title">2.3. Demo Cơ bản 1 &amp; 2: Tạo Vector/Ma trận và Tính Tổng Sigma (∑)</h2>
+            <p class="slide-subtitle">Giảng viên bấm nút <strong>▶️ Chạy thử Cell</strong> ngay trên Slide (hoặc chạy trực tiếp bên tab Google Colab):</p>
+          </div>
+
+          <div class="slide-content">
+            <div class="grid-2">
+              <div class="colab-cell-card">
+                <div class="colab-cell-header">
+                  <span style="font-weight:700; font-size:0.84rem;">In [1]: Tạo Vector &amp; Ma trận (.shape)</span>
+                  <button class="colab-run-btn" onclick="runSimulatedCell('cell-1')">▶️ Chạy thử Cell</button>
+                </div>
+                <div class="colab-cell-body">
+                  <pre id="code-cell-1" class="code-block">import numpy as np
 
 # 1. Vector 1 sinh viên: [GPA, Project, Code, T.Anh]
 x = np.array([3.5, 4, 8.0, 7.0])
@@ -530,21 +531,20 @@ X = np.array([
     [3.9, 6, 9.5, 8.5]
 ])
 print("Kích thước Ma trận X.shape:", X.shape)</pre>
-                <div id="out-cell-1" class="colab-output-box">✔ Output:
+                  <div id="out-cell-1" class="colab-output-box">✔ Output:
 Vector x: [3.5 4.  8.  7. ]
 Kích thước x.shape: (4,)
 Kích thước Ma trận X.shape: (3, 4)</div>
+                </div>
               </div>
-            </div>
 
-            <!-- CELL 2 -->
-            <div class="colab-cell-card">
-              <div class="colab-cell-header">
-                <span style="font-weight:700; font-size:0.88rem; color:#34d399;">In [2]: Tính Tổng Sigma (∑) &amp; Trung bình (x̄)</span>
-                <button class="colab-run-btn" onclick="runSimulatedCell('cell-2')">▶️ Chạy thử Cell</button>
-              </div>
-              <div class="colab-cell-body">
-                <pre id="code-cell-2" class="code-block">import numpy as np
+              <div class="colab-cell-card">
+                <div class="colab-cell-header">
+                  <span style="font-weight:700; font-size:0.84rem;">In [2]: Tính Tổng Sigma (∑) &amp; Trung bình (x̄)</span>
+                  <button class="colab-run-btn" onclick="runSimulatedCell('cell-2')">▶️ Chạy thử Cell</button>
+                </div>
+                <div class="colab-cell-body">
+                  <pre id="code-cell-2" class="code-block">import numpy as np
 
 diem_kiem_tra = np.array([8.0, 7.0, 9.0, 6.0])
 
@@ -556,39 +556,38 @@ diem_max   = np.max(diem_kiem_tra)
 print("Tổng Sigma (∑ x_i)  =", tong_sigma)
 print("Trung bình cộng (x̄) =", trung_binh)
 print("Điểm cao nhất       =", diem_max)</pre>
-                <div id="out-cell-2" class="colab-output-box">✔ Output:
+                  <div id="out-cell-2" class="colab-output-box">✔ Output:
 Tổng Sigma (∑ x_i)  = 30.0
 Trung bình cộng (x̄) = 7.5
 Điểm cao nhất       = 9.0</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ==================================================================
-           SLIDE 11: DEMO CƠ BẢN 3 & 4 TRÊN COLAB (TÍCH VÔ HƯỚNG & NHÂN MA TRẬN)
-           ================================================================== -->
-      <section class="slide" data-part="2" data-title="Slide 11: Demo Cơ bản 3 & 4 trên Colab">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-2-tag">Phần 2: Demo "Vài đường cơ bản" trên Colab</span>
-            <span class="slide-number-badge">Slide 11 / 15</span>
+        <!-- ================================================================
+             SLIDE 11: DEMO CƠ BẢN 3 & 4 TRÊN COLAB
+             ================================================================ -->
+        <section class="slide" data-part="2" data-title="Demo Cơ bản 3 & 4 trên Colab">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 2: Demo "Vài đường cơ bản" trên Colab</span>
+              <span class="slide-number-badge">Slide 11 / 15</span>
+            </div>
+            <h2 class="slide-title">2.4. Demo Cơ bản 3 &amp; 4: Công thức 1 Nơ-ron (<code>np.dot</code>) &amp; Chấm điểm Hàng loạt</h2>
+            <p class="slide-subtitle">Thấy ngay sức mạnh của Đại số tuyến tính: Xử lý cả bảng dữ liệu chỉ bằng 1 dòng lệnh!</p>
           </div>
-          <h2 class="slide-title">💻 Demo Cơ bản 3 &amp; 4: Công thức 1 Nơ-ron (<code>np.dot</code>) &amp; Chấm điểm Hàng loạt</h2>
-          <p class="slide-subtitle">Thấy ngay sức mạnh của Đại số tuyến tính: Xử lý cả bảng dữ liệu chỉ bằng 1 dòng lệnh!</p>
-        </div>
 
-        <div class="slide-content">
-          <div class="grid-2">
-            <!-- CELL 3 -->
-            <div class="colab-cell-card">
-              <div class="colab-cell-header">
-                <span style="font-weight:700; font-size:0.88rem; color:#60a5fa;">In [3]: Công thức 1 Nơ-ron (ŷ = w·x + b)</span>
-                <button class="colab-run-btn" onclick="runSimulatedCell('cell-3')">▶️ Chạy thử Cell</button>
-              </div>
-              <div class="colab-cell-body">
-                <pre id="code-cell-3" class="code-block">import numpy as np
+          <div class="slide-content">
+            <div class="grid-2">
+              <div class="colab-cell-card">
+                <div class="colab-cell-header">
+                  <span style="font-weight:700; font-size:0.84rem;">In [3]: Công thức 1 Nơ-ron (ŷ = w·x + b)</span>
+                  <button class="colab-run-btn" onclick="runSimulatedCell('cell-3')">▶️ Chạy thử Cell</button>
+                </div>
+                <div class="colab-cell-body">
+                  <pre id="code-cell-3" class="code-block">import numpy as np
 
 # Điểm của bạn: [Chuyên cần, Giữa kỳ, Cuối kỳ]
 x = np.array([9.0, 7.5, 8.0])
@@ -600,19 +599,18 @@ b = 0.2
 # Tính tích vô hướng bằng np.dot(w, x)
 y_hat = np.dot(w, x) + b
 print(f"Điểm tổng kết dự đoán (ŷ) = {y_hat:.2f}")</pre>
-                <div id="out-cell-3" class="colab-output-box">✔ Output:
+                  <div id="out-cell-3" class="colab-output-box">✔ Output:
 Điểm tổng kết dự đoán (ŷ) = 8.15</div>
+                </div>
               </div>
-            </div>
 
-            <!-- CELL 4 -->
-            <div class="colab-cell-card">
-              <div class="colab-cell-header">
-                <span style="font-weight:700; font-size:0.88rem; color:#c084fc;">In [4]: Nhân Ma trận chấm 3 người cùng lúc</span>
-                <button class="colab-run-btn" onclick="runSimulatedCell('cell-4')">▶️ Chạy thử Cell</button>
-              </div>
-              <div class="colab-cell-body">
-                <pre id="code-cell-4" class="code-block">import numpy as np
+              <div class="colab-cell-card">
+                <div class="colab-cell-header">
+                  <span style="font-weight:700; font-size:0.84rem;">In [4]: Nhân Ma trận chấm 3 người cùng lúc</span>
+                  <button class="colab-run-btn" onclick="runSimulatedCell('cell-4')">▶️ Chạy thử Cell</button>
+                </div>
+                <div class="colab-cell-body">
+                  <pre id="code-cell-4" class="code-block">import numpy as np
 
 # Ma trận X (3 ứng viên × 4 tiêu chí)
 X = np.array([
@@ -626,56 +624,56 @@ b = 2.0
 # Chấm điểm cả 3 người không cần vòng lặp for!
 diem_3_nguoi = np.dot(X, w) + b
 print("Điểm của 3 ứng viên:", diem_3_nguoi)</pre>
-                <div id="out-cell-4" class="colab-output-box">✔ Output:
+                  <div id="out-cell-4" class="colab-output-box">✔ Output:
 Điểm của 3 ứng viên: [39.75 29.45 53.6 ]</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ==================================================================
-           SLIDE 12: PHẦN 3 — GIAO BÀI TẬP 1 (MỨC CƠ BẢN)
-           ================================================================== -->
-      <section class="slide" data-part="3" data-title="Slide 12: Giao Bài tập 1 (Mức Cơ bản)">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-3-tag">Phần 3: Giao Bài tập Thực hành (Bài 1 / 3)</span>
-            <span class="slide-number-badge">Slide 12 / 15 • Thời gian: 10 phút</span>
+        <!-- ================================================================
+             SLIDE 12: PHẦN 3 — GIAO BÀI TẬP 1 (MỨC CƠ BẢN)
+             ================================================================ -->
+        <section class="slide" data-part="3" data-title="Giao Bài tập 1 (Mức Cơ bản)">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 3: Giao Bài tập Thực hành (Bài 1 / 3)</span>
+              <span class="slide-number-badge">Slide 12 / 15 • Thời gian: 10 phút</span>
+            </div>
+            <h2 class="slide-title">3.1. Bài tập 1 (Cơ bản): Số hóa Bảng điểm Cá nhân &amp; Xét Học bổng</h2>
+            <p class="slide-subtitle">Vận dụng: Khởi tạo Vector <code>𝐱 ∈ ℝ⁵</code>, kiểm tra <code>.shape</code>, tính Tổng <code>∑</code> và Trung bình <code>x̄</code></p>
           </div>
-          <h2 class="slide-title">📝 Bài tập 1 (Cơ bản): Số hóa Bảng điểm Cá nhân &amp; Xét Học bổng trên Colab</h2>
-          <p class="slide-subtitle">Vận dụng: Khởi tạo Vector <code>𝐱 ∈ ℝ⁵</code>, kiểm tra <code>.shape</code>, tính Tổng <code>∑</code> và Trung bình <code>x̄</code></p>
-        </div>
 
-        <div class="slide-content">
-          <div class="grid-2">
-            <div class="info-box emerald-accent">
-              <h3 style="color:#34d399;">🎯 Yêu cầu Đề bài:</h3>
-              <p style="font-size:0.92rem; color:var(--text-main); line-height:1.7;">
-                Mở Google Colab của bạn và hoàn thành đoạn code bên phải:<br/>
-                1. Nhập điểm 5 môn học gần nhất của bạn vào vector <code>diem_5_mon</code>.<br/>
-                2. In ra kích thước (<code>.shape</code>) của vector.<br/>
-                3. Dùng hàm NumPy tính <strong>Tổng điểm (<code>∑ xᵢ</code>)</strong>, <strong>Điểm trung bình (<code>x̄</code>)</strong> và <strong>Điểm cao nhất</strong>.<br/>
-                4. Nếu <code>diem_tb &ge; 8.0</code> thì in ra <em>"Đạt Học bổng!"</em>.
-              </p>
-              <div style="margin-top:1rem;">
-                <button class="btn-secondary" onclick="toggleSolution('sol-hw1', this)">💡 Xem Đáp Án Gợi Ý (GV chữa bài)</button>
-              </div>
-              <div id="sol-hw1" class="solution-box">
-                <pre class="code-block" style="font-size:0.8rem; border-color:var(--emerald);">diem_5_mon = np.array([8.5, 7.5, 9.0, 8.0, 8.5])
+          <div class="slide-content">
+            <div class="grid-2">
+              <div class="info-box emerald-accent">
+                <h3>🎯 Yêu cầu Đề bài:</h3>
+                <p style="font-size:0.86rem; line-height:1.65;">
+                  Mở Google Colab của bạn và hoàn thành đoạn code bên phải:<br/>
+                  1. Nhập điểm 5 môn học gần nhất của bạn vào vector <code>diem_5_mon</code>.<br/>
+                  2. In ra kích thước (<code>.shape</code>) của vector.<br/>
+                  3. Dùng hàm NumPy tính <strong>Tổng điểm (<code>∑ xᵢ</code>)</strong>, <strong>Điểm trung bình (<code>x̄</code>)</strong> và <strong>Điểm cao nhất</strong>.<br/>
+                  4. Nếu <code>diem_tb &ge; 8.0</code> thì in ra <em>"Đạt Học bổng!"</em>.
+                </p>
+                <div style="margin-top:0.75rem;">
+                  <button class="btn-secondary" onclick="toggleSolution('sol-hw1', this)">💡 Xem Đáp Án Gợi Ý (GV chữa bài)</button>
+                </div>
+                <div id="sol-hw1" class="solution-box">
+                  <pre class="code-block" style="font-size:0.74rem;">diem_5_mon = np.array([8.5, 7.5, 9.0, 8.0, 8.5])
 print("Kích thước:", diem_5_mon.shape)
 tong_diem = np.sum(diem_5_mon)
 diem_tb   = np.mean(diem_5_mon)
 diem_max  = np.max(diem_5_mon)</pre>
+                </div>
               </div>
-            </div>
 
-            <div>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-                <span style="font-size:0.8rem; font-weight:700; color:#38bdf8;">📋 KHUNG CODE GỢI Ý (Điền vào dấu ___):</span>
-                <button class="btn-secondary" onclick="copyCodeById('hw1-starter', this)">📋 Copy sang Colab</button>
-              </div>
-              <pre id="hw1-starter" class="code-block">import numpy as np
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+                  <span style="font-size:0.78rem; font-weight:800; color:#1e3a8a;">📋 KHUNG CODE GỢI Ý (Điền vào dấu ___):</span>
+                  <button class="btn-secondary" onclick="copyCodeById('hw1-starter', this)">📋 Copy sang Colab</button>
+                </div>
+                <pre id="hw1-starter" class="code-block">import numpy as np
 
 # 1. Điền điểm 5 môn học của bạn vào mảng:
 diem_5_mon = np.array([___, ___, ___, ___, ___])
@@ -694,50 +692,50 @@ print("Môn điểm cao nhất  :", diem_max)
 
 if diem_tb >= 8.0:
     print("🎉 Đạt Học bổng Khuyến khích!")</pre>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ==================================================================
-           SLIDE 13: PHẦN 3 — GIAO BÀI TẬP 2 (MỨC VẬN DỤNG)
-           ================================================================== -->
-      <section class="slide" data-part="3" data-title="Slide 13: Giao Bài tập 2 (Mức Vận dụng)">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-3-tag">Phần 3: Giao Bài tập Thực hành (Bài 2 / 3)</span>
-            <span class="slide-number-badge">Slide 13 / 15 • Thời gian: 15 phút</span>
+        <!-- ================================================================
+             SLIDE 13: PHẦN 3 — GIAO BÀI TẬP 2 (MỨC VẬN DỤNG)
+             ================================================================ -->
+        <section class="slide" data-part="3" data-title="Giao Bài tập 2 (Mức Vận dụng)">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 3: Giao Bài tập Thực hành (Bài 2 / 3)</span>
+              <span class="slide-number-badge">Slide 13 / 15 • Thời gian: 15 phút</span>
+            </div>
+            <h2 class="slide-title">3.2. Bài tập 2 (Vận dụng): "Cứu sáng" cho Bức Ảnh Bị Tối bằng Ma trận</h2>
+            <p class="slide-subtitle">Vận dụng: Phép nhân &amp; cộng vô hướng trên Ma trận <code>𝐗 ∈ ℝ⁴ˣ⁴</code>, hàm <code>np.clip</code> và <code>np.where</code></p>
           </div>
-          <h2 class="slide-title">📝 Bài tập 2 (Vận dụng): "Cứu sáng" cho Bức Ảnh Bị Tối bằng Phép toán Ma trận</h2>
-          <p class="slide-subtitle">Vận dụng: Phép nhân &amp; cộng vô hướng trên Ma trận <code>𝐗 ∈ ℝ⁴ˣ⁴</code>, hàm <code>np.clip</code> và <code>np.where</code></p>
-        </div>
 
-        <div class="slide-content">
-          <div class="grid-2">
-            <div class="info-box blue-accent">
-              <h3 style="color:#60a5fa;">🎯 Yêu cầu Đề bài:</h3>
-              <p style="font-size:0.9rem; color:var(--text-main); line-height:1.65;">
-                Cho ma trận ảnh 4×4 bị thiếu sáng <code>anh_toi</code>:<br/>
-                1. Tính <strong>độ sáng trung bình</strong> ban đầu của ma trận ảnh.<br/>
-                2. Tạo ma trận <code>anh_sang</code> bằng công thức: <strong>Nhân tương phản <code>1.5</code> lần rồi cộng thêm <code>60</code> độ sáng</strong>, dùng <code>np.clip(..., 0, 255)</code> để giữ giá trị trong đoạn [0, 255].<br/>
-                3. Tách nền nhị phân: Pixel nào <code>&ge; 128</code> biến thành <code>255</code> (Trắng), ngược lại thành <code>0</code> (Đen).
-              </p>
-              <div style="margin-top:0.85rem;">
-                <button class="btn-secondary" onclick="toggleSolution('sol-hw2', this)">💡 Xem Đáp Án Gợi Ý (GV chữa bài)</button>
-              </div>
-              <div id="sol-hw2" class="solution-box">
-                <pre class="code-block" style="font-size:0.78rem; border-color:var(--emerald);">print("Độ sáng TB đầu:", np.mean(anh_toi))
+          <div class="slide-content">
+            <div class="grid-2">
+              <div class="info-box blue-accent">
+                <h3>🎯 Yêu cầu Đề bài:</h3>
+                <p style="font-size:0.86rem; line-height:1.62;">
+                  Cho ma trận ảnh 4×4 bị thiếu sáng <code>anh_toi</code>:<br/>
+                  1. Tính <strong>độ sáng trung bình</strong> ban đầu của ma trận ảnh.<br/>
+                  2. Tạo ma trận <code>anh_sang</code> bằng công thức: <strong>Nhân tương phản <code>1.5</code> lần rồi cộng thêm <code>60</code> độ sáng</strong>, dùng <code>np.clip(..., 0, 255)</code> để giữ giá trị trong đoạn [0, 255].<br/>
+                  3. Tách nền nhị phân: Pixel nào <code>&ge; 128</code> biến thành <code>255</code> (Trắng), ngược lại thành <code>0</code> (Đen).
+                </p>
+                <div style="margin-top:0.75rem;">
+                  <button class="btn-secondary" onclick="toggleSolution('sol-hw2', this)">💡 Xem Đáp Án Gợi Ý (GV chữa bài)</button>
+                </div>
+                <div id="sol-hw2" class="solution-box">
+                  <pre class="code-block" style="font-size:0.74rem;">print("Độ sáng TB đầu:", np.mean(anh_toi))
 anh_sang = np.clip(anh_toi * 1.5 + 60, 0, 255)
 anh_nhi_phan = np.where(anh_sang >= 128, 255, 0)</pre>
+                </div>
               </div>
-            </div>
 
-            <div>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-                <span style="font-size:0.8rem; font-weight:700; color:#38bdf8;">📋 KHUNG CODE GỢI Ý (Điền vào dấu ___):</span>
-                <button class="btn-secondary" onclick="copyCodeById('hw2-starter', this)">📋 Copy sang Colab</button>
-              </div>
-              <pre id="hw2-starter" class="code-block">import numpy as np
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+                  <span style="font-size:0.78rem; font-weight:800; color:#1e3a8a;">📋 KHUNG CODE GỢI Ý (Điền vào dấu ___):</span>
+                  <button class="btn-secondary" onclick="copyCodeById('hw2-starter', this)">📋 Copy sang Colab</button>
+                </div>
+                <pre id="hw2-starter" class="code-block">import numpy as np
 
 anh_toi = np.array([
     [10,  20,  30,  15],
@@ -756,114 +754,119 @@ print("Ma trận sau khi cứu sáng:\n", anh_sang)
 # 3. Tách nền nhị phân (>= 128 thành 255, nhỏ hơn thành 0)
 anh_nhi_phan = np.where(anh_sang >= 128, 255, 0)
 print("Ma trận nhị phân:\n", anh_nhi_phan)</pre>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================================================================
-           SLIDE 14: PHẦN 3 — GIAO BÀI TẬP 3 (MINI-PROJECT CHẤM CV & DỰ ĐOÁN LƯƠNG)
-           ================================================================== -->
-      <section class="slide" data-part="3" data-title="Slide 14: Giao Bài tập 3 (Mini-App Chấm CV)">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-3-tag">Phần 3: Giao Bài tập Thực hành (Bài 3 / 3 — Sản phẩm Cuối Buổi)</span>
-            <span class="slide-number-badge">Slide 14 / 15 • Thời gian: 20 phút</span>
-          </div>
-          <h2 class="slide-title">🚀 Bài tập 3: Xây dựng Mini-App AI Chấm điểm CV &amp; Dự đoán Lương Thực tập IT</h2>
-          <p class="slide-subtitle">Thử nghiệm trọng số <code>𝐰</code> ngay trên bảng tương tác dưới đây, sau đó copy code sang Colab để xuất ra Web App Gradio!</p>
-        </div>
-
-        <div class="slide-content">
-          <div class="grid-2">
-            <!-- Cột Trái: Chỉnh Trọng số & Thêm Ứng viên -->
-            <div class="info-box">
-              <div style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.65rem;">
-                <button class="btn-secondary" onclick="setCompanyPreset('product')">🔥 Gu Công ty Product</button>
-                <button class="btn-secondary" onclick="setCompanyPreset('global')">🌍 Gu Đa quốc gia</button>
-                <button class="btn-secondary" onclick="setCompanyPreset('fresher')">🎓 Gu Fresher</button>
-              </div>
-
-              <div class="slider-group">
-                <label><span>Trọng số <code>w₁</code> (GPA):</span><span id="val-w-gpa" style="color:#38bdf8;">1.5</span></label>
-                <input type="range" id="w-gpa" min="0" max="4" step="0.1" value="1.5" oninput="renderCVDemo()" />
-              </div>
-              <div class="slider-group">
-                <label><span>Trọng số <code>w₂</code> (Số Project):</span><span id="val-w-proj" style="color:#38bdf8;">1.5</span></label>
-                <input type="range" id="w-proj" min="0" max="4" step="0.1" value="1.5" oninput="renderCVDemo()" />
-              </div>
-              <div class="slider-group">
-                <label><span>Trọng số <code>w₃</code> (Điểm Code):</span><span id="val-w-code" style="color:#38bdf8;">2.0</span></label>
-                <input type="range" id="w-code" min="0" max="4" step="0.1" value="2.0" oninput="renderCVDemo()" />
-              </div>
-              <div class="slider-group">
-                <label><span>Trọng số <code>w₄</code> (Tiếng Anh):</span><span id="val-w-eng" style="color:#38bdf8;">1.5</span></label>
-                <input type="range" id="w-eng" min="0" max="4" step="0.1" value="1.5" oninput="renderCVDemo()" />
-              </div>
-              <div class="slider-group" style="margin-bottom:0;">
-                <label><span>Điểm sàn <code>b</code> (Bias):</span><span id="val-b-bias" style="color:#fbbf24;">2.0</span></label>
-                <input type="range" id="b-bias" min="0" max="10" step="0.5" value="2.0" oninput="renderCVDemo()" />
               </div>
             </div>
+          </div>
+        </section>
 
-            <!-- Cột Phải: Bảng kết quả Ma trận & Nút Copy Code Colab -->
-            <div class="info-box">
-              <div style="overflow-x:auto; margin-bottom:0.65rem;">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th>Hạng</th>
-                      <th>Ứng viên</th>
-                      <th>GPA</th>
-                      <th>Proj</th>
-                      <th>Code</th>
-                      <th>T.Anh</th>
-                      <th>Điểm ŷ</th>
-                      <th>Kết quả</th>
-                    </tr>
-                  </thead>
-                  <tbody id="cv-table-body"></tbody>
-                </table>
+        <!-- ================================================================
+             SLIDE 14: PHẦN 3 — GIAO BÀI TẬP 3 (MINI-PROJECT CHẤM CV)
+             ================================================================ -->
+        <section class="slide" data-part="3" data-title="Giao Bài tập 3 (Mini-App Chấm CV)">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Phần 3: Giao Bài tập Thực hành (Bài 3 / 3 — Sản phẩm Cuối Buổi)</span>
+              <span class="slide-number-badge">Slide 14 / 15 • Thời gian: 20 phút</span>
+            </div>
+            <h2 class="slide-title">3.3. Bài tập 3: Xây dựng Mini-App AI Chấm điểm CV &amp; Dự đoán Lương IT</h2>
+            <p class="slide-subtitle">Thử nghiệm trọng số <code>𝐰</code> ngay trên bảng tương tác dưới đây, sau đó copy code sang Colab để xuất ra Web App Gradio!</p>
+          </div>
+
+          <div class="slide-content">
+            <div class="grid-2">
+              <div class="info-box">
+                <div style="display:flex; gap:0.35rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+                  <button class="btn-secondary" onclick="setCompanyPreset('product')">🔥 Gu Công ty Product</button>
+                  <button class="btn-secondary" onclick="setCompanyPreset('global')">🌍 Gu Đa quốc gia</button>
+                  <button class="btn-secondary" onclick="setCompanyPreset('fresher')">🎓 Gu Fresher</button>
+                </div>
+
+                <div class="slider-group">
+                  <label><span>Trọng số <code>w₁</code> (GPA):</span><span id="val-w-gpa" style="color:#1d4ed8; font-weight:800;">1.5</span></label>
+                  <input type="range" id="w-gpa" min="0" max="4" step="0.1" value="1.5" oninput="renderCVDemo()" />
+                </div>
+                <div class="slider-group">
+                  <label><span>Trọng số <code>w₂</code> (Số Project):</span><span id="val-w-proj" style="color:#1d4ed8; font-weight:800;">1.5</span></label>
+                  <input type="range" id="w-proj" min="0" max="4" step="0.1" value="1.5" oninput="renderCVDemo()" />
+                </div>
+                <div class="slider-group">
+                  <label><span>Trọng số <code>w₃</code> (Điểm Code):</span><span id="val-w-code" style="color:#1d4ed8; font-weight:800;">2.0</span></label>
+                  <input type="range" id="w-code" min="0" max="4" step="0.1" value="2.0" oninput="renderCVDemo()" />
+                </div>
+                <div class="slider-group">
+                  <label><span>Trọng số <code>w₄</code> (Tiếng Anh):</span><span id="val-w-eng" style="color:#1d4ed8; font-weight:800;">1.5</span></label>
+                  <input type="range" id="w-eng" min="0" max="4" step="0.1" value="1.5" oninput="renderCVDemo()" />
+                </div>
+                <div class="slider-group" style="margin-bottom:0;">
+                  <label><span>Điểm sàn <code>b</code> (Bias):</span><span id="val-b-bias" style="color:#b45309; font-weight:800;">2.0</span></label>
+                  <input type="range" id="b-bias" min="0" max="10" step="0.5" value="2.0" oninput="renderCVDemo()" />
+                </div>
               </div>
 
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
-                <span style="font-size:0.78rem; font-weight:700; color:#34d399;">🐍 Code NumPy của Bài 3:</span>
-                <button class="btn-secondary" style="padding:0.2rem 0.6rem; font-size:0.76rem;" onclick="copyCodeById('cv-python-code', this)">📋 Copy Code</button>
+              <div class="info-box">
+                <div style="overflow-x:auto; margin-bottom:0.5rem;">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Hạng</th>
+                        <th>Ứng viên</th>
+                        <th>GPA</th>
+                        <th>Proj</th>
+                        <th>Code</th>
+                        <th>T.Anh</th>
+                        <th>Điểm ŷ</th>
+                        <th>Kết quả</th>
+                      </tr>
+                    </thead>
+                    <tbody id="cv-table-body"></tbody>
+                  </table>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.25rem;">
+                  <span style="font-size:0.75rem; font-weight:800; color:#047857;">🐍 Code NumPy của Bài 3:</span>
+                  <button class="btn-secondary" style="padding:0.15rem 0.5rem; font-size:0.72rem;" onclick="copyCodeById('cv-python-code', this)">📋 Copy Code</button>
+                </div>
+                <pre id="cv-python-code" class="code-block" style="font-size:0.7rem; max-height:115px; padding:0.55rem;"></pre>
               </div>
-              <pre id="cv-python-code" class="code-block" style="font-size:0.74rem; max-height:140px;"></pre>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ==================================================================
-           SLIDE 15: TỔNG KẾT BUỔI 1 & LỘ TRÌNH 11 BUỔI TOÀN KHÓA
-           ================================================================== -->
-      <section class="slide" data-part="4" data-title="Slide 15: Tổng kết & Lộ trình 11 Buổi">
-        <div class="slide-top">
-          <div class="slide-meta">
-            <span class="slide-part-tag part-4-tag">Tổng kết Buổi 1 &amp; Hướng tới Buổi 2</span>
-            <span class="slide-number-badge">Slide 15 / 15</span>
+        <!-- ================================================================
+             SLIDE 15: TỔNG KẾT BUỔI 1 & LỘ TRÌNH 11 BUỔI TOÀN KHÓA
+             ================================================================ -->
+        <section class="slide" data-part="4" data-title="Tổng kết & Lộ trình 11 Buổi">
+          <div class="slide-top">
+            <div class="slide-meta">
+              <span class="slide-part-tag">Tổng kết Buổi 1 &amp; Hướng tới Buổi 2</span>
+              <span class="slide-number-badge">Slide 15 / 15</span>
+            </div>
+            <h2 class="slide-title">🗺️ Tổng kết Buổi 1 &amp; Lộ trình 11 Buổi Thực chiến</h2>
+            <p class="slide-subtitle">Mỗi buổi học tiếp theo đều đi theo cấu trúc: Lý thuyết Trực quan &rarr; Demo Colab &rarr; Bài tập Sản phẩm</p>
           </div>
-          <h2 class="slide-title">🗺️ Tổng kết Buổi 1 &amp; Lộ trình 11 Buổi Thực chiến</h2>
-          <p class="slide-subtitle">Mỗi buổi học tiếp theo đều đi theo đúng cấu trúc: Lý thuyết Trực quan &rarr; Demo Colab &rarr; Bài tập Sản phẩm</p>
-        </div>
 
-        <div class="slide-content">
-          <div id="syllabus-container" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:0.75rem; max-height:520px; overflow-y:auto; padding-right:0.25rem;"></div>
-        </div>
-      </section>
+          <div class="slide-content">
+            <div id="syllabus-container" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(255px, 1fr)); gap:0.6rem; max-height:460px; overflow-y:auto;"></div>
+          </div>
+        </section>
 
-    </main>
+      </main>
+    </div>
 
-    <!-- BOTTOM SLIDE CONTROLLER BAR -->
+    <!-- 4. POWERPOINT BOTTOM STATUS BAR -->
     <footer class="bottombar">
-      <div style="display:flex; align-items:center; gap:0.75rem;">
-        <span style="font-size:0.82rem; color:var(--text-muted);">Chuyển nhanh:</span>
+      <div style="display:flex; align-items:center; gap:0.85rem;">
+        <span id="status-slide-label" style="font-weight:700; color:#1e293b;">Slide 1 / 15</span>
+        <span>•</span>
+        <span>Ngôn ngữ: Tiếng Việt</span>
+        <span>•</span>
         <select id="slide-selector" class="slide-select" onchange="goToSlide(parseInt(this.value, 10))"></select>
       </div>
 
       <div class="nav-controls">
+        <button class="btn-secondary" onclick="toggleSlideShowMode()" style="font-size:0.76rem; padding:0.25rem 0.65rem;">
+          🖥️ Chế độ Trình chiếu / Chuẩn
+        </button>
         <button id="prev-btn" class="ctrl-btn" onclick="prevSlide()">
           ◀ Slide trước
         </button>

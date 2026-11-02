@@ -1,5 +1,5 @@
 // ============================================================================
-// TOAN AI 2026 — SLIDE DECK ENGINE & INTERACTIVE WIDGETS (15 SLIDES)
+// TOAN AI 2026 — POWERPOINT PRESENTATION ENGINE & INTERACTIVE WIDGETS
 // ============================================================================
 
 let currentSlide = 0;
@@ -155,7 +155,7 @@ const SYLLABUS_DATA = [
 ];
 
 // ============================================================================
-// KHỞI TẠO SLIDE DECK
+// KHỞI TẠO POWERPOINT DECK & DANH SÁCH THUMBNAIL BÊN TRÁI
 // ============================================================================
 document.addEventListener("DOMContentLoaded", () => {
   initSlideDeck();
@@ -171,31 +171,63 @@ function initSlideDeck() {
   const slides = document.querySelectorAll(".slide");
   totalSlides = slides.length;
 
-  // Populate dropdown selector
+  // 1. Tạo danh sách Slide thu nhỏ bên trái (PowerPoint Thumbnail Pane)
+  const thumbPane = document.getElementById("ppt-thumbnails");
+  if (thumbPane) {
+    const partNames = {
+      "1": "Phần 1: Lý thuyết Toán",
+      "2": "Phần 2: Colab & Demo",
+      "3": "Phần 3: Bài tập",
+      "4": "Tổng kết 11 Buổi"
+    };
+
+    thumbPane.innerHTML = Array.from(slides)
+      .map((s, idx) => {
+        const title = s.getAttribute("data-title") || `Slide ${idx + 1}`;
+        const part = s.getAttribute("data-part") || "1";
+        return `
+          <div class="thumb-item" id="thumb-${idx}" onclick="goToSlide(${idx})">
+            <span class="thumb-num">${idx + 1}</span>
+            <div class="thumb-card">
+              <div>
+                <div class="thumb-bar p${part}"></div>
+                <div class="thumb-title">${escapeHtml(title)}</div>
+              </div>
+              <div class="thumb-sub">${partNames[part] || ""}</div>
+            </div>
+          </div>
+        `;
+      })
+      .join("");
+  }
+
+  // 2. Tạo menu chọn nhanh ở thanh trạng thái dưới cùng
   const selector = document.getElementById("slide-selector");
   if (selector) {
     selector.innerHTML = Array.from(slides)
       .map((s, idx) => {
         const title = s.getAttribute("data-title") || `Slide ${idx + 1}`;
-        return `<option value="${idx}">${escapeHtml(title)}</option>`;
+        return `<option value="${idx}">Slide ${idx + 1}: ${escapeHtml(title)}</option>`;
       })
       .join("");
   }
 
-  // Keyboard navigation (Left/Right arrows)
+  // 3. Phím tắt bàn phím chuẩn PowerPoint
   document.addEventListener("keydown", (e) => {
     const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : "";
     if (tag === "input" || tag === "textarea" || tag === "select") return;
 
-    if (e.key === "ArrowRight" || e.key === "PageDown") {
+    if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") {
       e.preventDefault();
       nextSlide();
     } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
       e.preventDefault();
       prevSlide();
-    } else if (e.key === "f" || e.key === "F") {
+    } else if (e.key === "F5" || e.key === "f" || e.key === "F") {
       e.preventDefault();
-      toggleFullscreen();
+      toggleSlideShowMode();
+    } else if (e.key === "Escape") {
+      document.body.classList.remove("slideshow-mode");
     }
   });
 
@@ -211,27 +243,31 @@ function goToSlide(index) {
     s.classList.toggle("active", i === currentSlide);
   });
 
-  // Update counter & buttons
+  // Cập nhật bộ đếm
   const counter = document.getElementById("slide-counter");
+  const statusLabel = document.getElementById("status-slide-label");
   if (counter) counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+  if (statusLabel) statusLabel.textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
 
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
   if (prevBtn) prevBtn.disabled = currentSlide === 0;
   if (nextBtn) nextBtn.disabled = currentSlide === totalSlides - 1;
 
-  // Update dropdown
+  // Cập nhật dropdown
   const selector = document.getElementById("slide-selector");
   if (selector) selector.value = String(currentSlide);
 
-  // Update progress bar
-  const fill = document.getElementById("progress-fill");
-  if (fill) {
-    const pct = ((currentSlide + 1) / totalSlides) * 100;
-    fill.style.width = `${pct}%`;
+  // Highlight thumbnail bên trái và tự cuộn tới thumbnail đang chọn
+  document.querySelectorAll(".thumb-item").forEach((t, i) => {
+    t.classList.toggle("active", i === currentSlide);
+  });
+  const activeThumb = document.getElementById(`thumb-${currentSlide}`);
+  if (activeThumb) {
+    activeThumb.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }
 
-  // Highlight active section pill in topbar
+  // Highlight tab Phần học trên thanh Ribbon
   const part = slides[currentSlide].getAttribute("data-part") || "1";
   document.querySelectorAll(".part-pill").forEach((p) => p.classList.remove("active"));
   const activePill = document.getElementById(`pill-part${part}`);
@@ -250,10 +286,11 @@ function prevSlide() {
   }
 }
 
-function toggleFullscreen() {
-  if (!document.fullscreenElement) {
+function toggleSlideShowMode() {
+  const isNowSlideShow = document.body.classList.toggle("slideshow-mode");
+  if (isNowSlideShow && !document.fullscreenElement) {
     document.documentElement.requestFullscreen().catch(() => {});
-  } else {
+  } else if (!isNowSlideShow && document.fullscreenElement) {
     document.exitFullscreen().catch(() => {});
   }
 }
@@ -274,13 +311,17 @@ function renderPipeline(activeIndex) {
   if (!detailBox || !stage) return;
 
   detailBox.innerHTML = `
-    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.55rem;">
-      <span class="slide-part-tag part-1-tag">${stage.step} — Học tại: ${stage.sessions}</span>
-      <span class="slide-part-tag part-4-tag">Nhánh Toán: ${stage.mathUsed}</span>
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.45rem;">
+      <span style="background:#dbeafe; color:#1e3a8a; font-weight:800; font-size:0.75rem; padding:0.2rem 0.65rem; border-radius:4px;">
+        ${stage.step} — Học tại: ${stage.sessions}
+      </span>
+      <span style="background:#fef3c7; color:#9a3412; font-weight:800; font-size:0.75rem; padding:0.2rem 0.65rem; border-radius:4px;">
+        Nhánh Toán: ${stage.mathUsed}
+      </span>
     </div>
-    <h3 style="font-size:1.18rem; color:#fff; margin-bottom:0.45rem;">${stage.title}</h3>
-    <p style="color:var(--text-main); font-size:0.94rem; margin-bottom:0.75rem;">📐 <strong>Bản chất Lý thuyết:</strong> ${stage.theoryExplain}</p>
-    <div style="background:#060911; border:1px dashed rgba(245, 158, 11, 0.45); padding:0.75rem 1rem; border-radius:8px; font-family:var(--font-mono); color:#fbbf24; font-size:0.88rem;">
+    <h3 style="font-size:1.12rem; margin-bottom:0.35rem;">${stage.title}</h3>
+    <p style="font-size:0.88rem; margin-bottom:0.6rem;">📐 <strong>Bản chất Lý thuyết:</strong> ${stage.theoryExplain}</p>
+    <div style="background:#1e293b; color:#fde047; padding:0.65rem 0.9rem; border-radius:6px; font-family:var(--font-mono); font-size:0.84rem; font-weight:600;">
       ${escapeHtml(stage.exampleMath)}
     </div>
   `;
@@ -297,8 +338,8 @@ function updateSigmaCalc() {
   const outFormula = document.getElementById("sigma-live-result");
   if (outFormula) {
     outFormula.innerHTML = `
-      <div>• Phép Tổng Sigma: <strong>&sum;(i=1&rarr;${n}) xᵢ</strong> = ${vals.join(" + ")} = <strong style="color:#fbbf24; font-size:1.08rem;">${sum.toFixed(1)}</strong></div>
-      <div style="margin-top:0.25rem;">• Trung bình cộng: <strong>x̄ = (1/${n}) &sum; xᵢ</strong> = ${sum.toFixed(1)} / ${n} = <strong style="color:#34d399; font-size:1.08rem;">${mean.toFixed(2)}</strong></div>
+      <div>• Phép Tổng Sigma: <strong>&sum;(i=1&rarr;${n}) xᵢ</strong> = ${vals.join(" + ")} = <strong style="color:#b45309; font-size:1.05rem;">${sum.toFixed(1)}</strong></div>
+      <div style="margin-top:0.2rem;">• Trung bình cộng: <strong>x̄ = (1/${n}) &sum; xᵢ</strong> = ${sum.toFixed(1)} / ${n} = <strong style="color:#047857; font-size:1.05rem;">${mean.toFixed(2)}</strong></div>
     `;
   }
 }
@@ -350,7 +391,7 @@ function renderPixelLab() {
       const cell = document.createElement("div");
       cell.className = "pixel-cell";
       cell.style.backgroundColor = `rgb(${val}, ${val}, ${val})`;
-      cell.style.color = val > 135 ? "#090d16" : "#94a3b8";
+      cell.style.color = val > 135 ? "#090d16" : "#e2e8f0";
       cell.textContent = val;
       cell.addEventListener("click", () => {
         baseMatrix[rIdx][cIdx] = baseMatrix[rIdx][cIdx] > 128 ? 0 : 250;
@@ -376,7 +417,7 @@ function renderQuiz() {
   box.innerHTML = QUIZ_QUESTIONS.map(
     (item, qIdx) => `
       <div class="quiz-item">
-        <div style="font-weight:700; font-size:0.9rem; color:#fff;">${item.q}</div>
+        <div style="font-weight:700;">${item.q}</div>
         <div class="quiz-options">
           ${item.options
             .map(
@@ -404,14 +445,14 @@ function checkQuizAnswer(qIdx, oIdx, btnEl) {
     btnEl.classList.add("correct");
     if (fb) {
       fb.style.display = "block";
-      fb.style.color = "#34d399";
+      fb.style.color = "#047857";
       fb.textContent = "✅ " + item.explain;
     }
   } else {
     btnEl.classList.add("wrong");
     if (fb) {
       fb.style.display = "block";
-      fb.style.color = "#fda4af";
+      fb.style.color = "#be123c";
       fb.textContent = "❌ Chưa đúng, bạn chọn lại nhé!";
     }
   }
@@ -485,12 +526,12 @@ function renderCVDemo() {
         return `
           <tr>
             <td><strong>#${rank + 1}</strong></td>
-            <td style="font-weight:700; color:#fff;">${escapeHtml(item.name)}</td>
+            <td style="font-weight:700; color:#0f172a;">${escapeHtml(item.name)}</td>
             <td>${item.gpa.toFixed(1)}</td>
             <td>${item.projects}</td>
             <td>${item.coding.toFixed(1)}</td>
             <td>${item.english.toFixed(1)}</td>
-            <td style="font-family:var(--font-mono); color:#38bdf8; font-weight:700;">${item.rawScore.toFixed(1)}</td>
+            <td style="font-family:var(--font-mono); color:#1d4ed8; font-weight:800;">${item.rawScore.toFixed(1)}</td>
             <td>${badge}</td>
           </tr>
         `;
@@ -526,13 +567,13 @@ function renderSyllabus() {
   container.innerHTML = SYLLABUS_DATA.map((item) => {
     const isBuoi1 = item.buoi === 1;
     return `
-      <div class="info-box" style="padding:0.85rem; border-color:${isBuoi1 ? "var(--emerald)" : "var(--border)"};">
-        <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-accent); font-weight:700; margin-bottom:0.25rem;">
+      <div class="info-box" style="padding:0.7rem; border:2px solid ${isBuoi1 ? "#059669" : "#cbd5e1"}; background:${isBuoi1 ? "#ecfdf5" : "#f8fafc"};">
+        <div style="display:flex; justify-content:space-between; font-size:0.72rem; color:#1d4ed8; font-weight:800; margin-bottom:0.2rem;">
           <span>BUỔI ${item.buoi} • ${item.phan}</span>
-          ${isBuoi1 ? '<span style="color:#34d399;">★ Đã hoàn thành</span>' : ""}
+          ${isBuoi1 ? '<span style="color:#047857;">★ Đang học</span>' : ""}
         </div>
-        <div style="font-weight:700; font-size:0.92rem; color:#fff; margin-bottom:0.35rem;">${item.title}</div>
-        <div style="font-size:0.8rem; color:#fde68a;">🚀 ${item.demo}</div>
+        <div style="font-weight:800; font-size:0.86rem; color:#0f172a; margin-bottom:0.25rem;">${item.title}</div>
+        <div style="font-size:0.76rem; color:#b45309; font-weight:600;">🚀 ${item.demo}</div>
       </div>
     `;
   }).join("");
